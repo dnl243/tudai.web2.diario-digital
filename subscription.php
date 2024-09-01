@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php require_once 'templates/head.php'; ?>
-
-<body>
-
-  <!-- header -->
-  <?php require_once 'templates/header.php'; ?>
+<?php
+function showSubscription()
+{
+  //<!-- header -->
+  require_once 'templates/header.php'; ?>
 
   <!-- main section -->
   <main class="container mt-5">
@@ -45,8 +41,5 @@
   </main>
 
   <!-- footer -->
-  <?php require_once 'templates/footer.php'; ?>
-
-</body>
-
-</html>
+<?php require_once 'templates/footer.php';
+}

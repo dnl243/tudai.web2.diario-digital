@@ -1,25 +1,51 @@
 <?php
 require_once 'noticias.php';
+require_once 'about.php';
+require_once 'subscription.php';
 
 /**
-*  action            function
-*  /home             showNoticias();
-*  /noticia/:id      showNoticiaById($id);
-*  /about            showAbout();
-*  /about/:dev       showAbout($dev);
-*
-*/
+ *  action            function
+ *  /home             showNoticias();
+ *  /noticia/:id      showNoticiaById($id);
+ *  /about            showAbout();
+ *  /about/:dev       showAbout($dev);
+ *  /subscription     showSubscription();
+ *  /error            show404();
+ */
 
 // el router va a leer la acción desde el parámetro "action"
 
-$action = $_GET['action'];
+//  if (isset($_GET['action'])) {
+//    $action = $_GET['action'];
+//  } else {
+//      $action = 'home';
+//  }
 
-switch ($action) {
+$action = $_GET['action'] ?? 'home';
+
+//parsea el parámetro Ej: noticia/1 --> ['noticia', 1]
+//parsea el parámetro Ej: about/franco --> ['about', 'franco']
+$params = explode('/', $action);
+
+// var_dump($params);
+// die();
+
+switch ($params[0]) {
   case 'home':
     showNoticias();
     break;
   case 'noticia':
-    showNoticiaById(0);
-    break;  
+    showNoticiaById($params[1]);
+    break;
+  case 'about':
+    isset($params[1]) ? 
+    showAbout($params[1]) :
+    showAbout();
+    break;
+  case 'subscription':
+    showSubscription();
+    break;
+  default:
+    show404();
+    break;
 }
-

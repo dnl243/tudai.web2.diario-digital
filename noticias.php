@@ -20,7 +20,7 @@ function showNoticias()
           <div class="card-body">
             <h5 class="card-title"><?= $noticia->title ?></h5>
             <p class="card-text"><?= $noticia->text ?></p>
-            <a href="noticia.php?id=<?= $key; ?>" class="btn btn-outline-primary">Leer más</a>
+            <a href="router.php?action=noticia/<?= $key; ?>" class="btn btn-outline-primary">Leer más</a>
           </div>
         </div>
       <?php endforeach; ?>
@@ -52,4 +52,19 @@ function showNoticiaById($id)
 
   <!-- footer -->
 <?php require_once 'templates/footer.php';
+}
+
+function show404(){
+    //  <!-- header -->
+    require_once 'templates/header.php'; ?>
+
+    <!-- main section -->
+    <main class="container mt-5">
+      <h1 class="text-center mt-5">ERROR 404</h1>  
+      <p class="text-center mb-5">Página no encontrada</p>  
+    </main>
+  
+    <!-- footer -->
+  <?php require_once 'templates/footer.php';
+
 }
