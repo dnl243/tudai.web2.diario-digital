@@ -22,7 +22,7 @@ require_once 'templates/head.php'
 
     <div class="row">
       <div class="col">
-        <div class="list-group">
+        <div class="list-group" style="width: 18rem;">
           <?php foreach ($developers as $developer) : ?>
             <a href="about.php?dev=<?= $developer->id; ?>" class="list-group-item list-group-item-action">
               <?= $developer->name; ?>
@@ -37,6 +37,7 @@ require_once 'templates/head.php'
           $developer = getDevelopersById($dev);
         ?>
           <div class="card" style="width: 18rem;">
+            <img src="images/avatar.png" class="card-img-top">
             <div class="card-body">
               <h4 class="card-title"><?= $developer->name; ?></h4>
               <h5 class="card-subtitle"><?= $developer->role; ?></h5>
