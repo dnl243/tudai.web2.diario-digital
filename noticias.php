@@ -20,7 +20,7 @@ function showNoticias()
           <div class="card-body">
             <h5 class="card-title"><?= $noticia->title ?></h5>
             <p class="card-text"><?= $noticia->text ?></p>
-            <a href="router.php?action=noticia/<?= $key; ?>" class="btn btn-outline-primary">Leer más</a>
+            <a href="noticia/<?= $key; ?>" class="btn btn-outline-primary">Leer más</a>
           </div>
         </div>
       <?php endforeach; ?>

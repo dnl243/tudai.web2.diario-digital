@@ -14,7 +14,7 @@
         <div class="col">
           <div class="list-group" style="width: 18rem;">
             <?php foreach ($developers as $developer) : ?>
-              <a href="router.php?action=about/<?= $developer->id; ?>" class="list-group-item list-group-item-action">
+              <a href="about/<?= $developer->id; ?>" class="list-group-item list-group-item-action">
                 <?= $developer->name; ?>
               </a>
             <?php endforeach; ?>

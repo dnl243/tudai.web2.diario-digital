@@ -3,8 +3,11 @@ require_once 'noticias.php';
 require_once 'about.php';
 require_once 'subscription.php';
 
+define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
 /**
  *  action            function
+
  *  /home             showNoticias();
  *  /noticia/:id      showNoticiaById($id);
  *  /about            showAbout();
@@ -21,7 +24,7 @@ require_once 'subscription.php';
 //      $action = 'home';
 //  }
 
-$action = $_GET['action'] ?? 'home';
+$action = empty($_GET['action']) ? 'home' : $_GET['action'];
 
 //parsea el parámetro Ej: noticia/1 --> ['noticia', 1]
 //parsea el parámetro Ej: about/franco --> ['about', 'franco']
@@ -38,9 +41,9 @@ switch ($params[0]) {
     showNoticiaById($params[1]);
     break;
   case 'about':
-    isset($params[1]) ? 
-    showAbout($params[1]) :
-    showAbout();
+    isset($params[1]) ?
+      showAbout($params[1]) :
+      showAbout();
     break;
   case 'subscription':
     showSubscription();
